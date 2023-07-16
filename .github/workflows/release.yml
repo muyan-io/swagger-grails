@@ -1,0 +1,16 @@
+# Gradle build.
+
+name: Publish to package repository
+
+on:
+  release:
+    types: [created, published]
+
+jobs:
+
+   - name: Publish to github maven repository
+     env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       GRAILS_VERSION: 4.0.5
+     run: |
+       ./gradlew publish

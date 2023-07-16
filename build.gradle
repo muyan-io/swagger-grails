@@ -21,6 +21,13 @@ jar {
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
+    maven {
+        url "https://maven.pkg.github.com/muyantech/elasticsearch-grails-plugin"
+        credentials {
+            username = "xqliu"
+            password = "56f5cfae5281a1f8af81bf4861063a52317c8a5c"
+        }
+    }
 }
 
 configurations {
