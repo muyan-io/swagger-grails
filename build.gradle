@@ -86,19 +86,39 @@ tasks.withType(GroovyCompile) {
 bootJar.enabled = false
 
 publishing {
-    repositories {
-        maven {
-            url 'https://steamcleaner.jfrog.io/artifactory/grails-plugins/'
-            credentials {
-                username System.getenv('JFR_USERNAME')
-                password System.getenv('JFR_TOKEN')
-            }
-        }
-    }
 
-    publications {
-        maven(MavenPublication) {
-            from components.java
-        }
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = uri("https://maven.pkg.github.com/muyantech/swagger-grails")
+      credentials {
+        username = System.getenv("GITHUB_ACTOR")
+        password = System.getenv("GITHUB_TOKEN")
+      }
     }
+  }
+
+  publications {
+    gpr(MavenPublication) {
+      from(components.java)
+    }
+  }
 }
+
+// publishing {
+//     repositories {
+//         maven {
+//             url 'https://steamcleaner.jfrog.io/artifactory/grails-plugins/'
+//             credentials {
+//                 username System.getenv('JFR_USERNAME')
+//                 password System.getenv('JFR_TOKEN')
+//             }
+//         }
+//     }
+
+//     publications {
+//         maven(MavenPublication) {
+//             from components.java
+//         }
+//     }
+// }
