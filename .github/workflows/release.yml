@@ -11,6 +11,9 @@ on:
 jobs:
 
   publish_to_registry:
+    # Containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
 
