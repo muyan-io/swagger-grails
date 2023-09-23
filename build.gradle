@@ -21,13 +21,6 @@ jar {
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
-    maven {
-        url "https://maven.pkg.github.com/muyantech/elasticsearch-grails-plugin"
-        credentials {
-            username = "xqliu"
-            password = "56f5cfae5281a1f8af81bf4861063a52317c8a5c"
-        }
-    }
 }
 
 configurations {
@@ -90,10 +83,11 @@ publishing {
   repositories {
     maven {
       name = "GitHubPackages"
-      url = uri("https://maven.pkg.github.com/muyantech/swagger-grails")
+      url = uri("http://packages.muyan.io/artifactory/libs-release")
+      allowInsecureProtocol = true
       credentials {
-        username = System.getenv("GITHUB_ACTOR")
-        password = System.getenv("GITHUB_TOKEN")
+        username = "admin"
+        password = "cmVmdGtuOjAxOjE3MjY5ODE3NzQ6bkN6STdwOFFuaGRpa0xodk1GTDlIdXd4YzIz"
       }
     }
   }
